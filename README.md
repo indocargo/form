@@ -1,2 +1,303 @@
-# form
-booking order box
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pengiriman INDO CARGO</title>
+    
+    <style>
+        /* CSS RESET & FONT */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* CONTAINER UTAMA */
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* HEADER & LOGO STYLING */
+        .logo-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .logo-header h2 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 800;
+        }
+
+        .logo-header .indo {
+            color: #007bff; /* Biru */
+        }
+
+        .logo-header .cargo {
+            color: #dc3545; /* Merah */
+        }
+        
+        /* JUDUL FORM */
+        .form-title {
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #25D366;
+            padding-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        /* FIELDSET (Grup Data) */
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: box-shadow 0.3s;
+        }
+
+        fieldset:hover {
+            box-shadow: 0 2px 10px rgba(37, 211, 102, 0.2);
+        }
+
+        legend {
+            font-weight: bold;
+            color: #25D366;
+            padding: 0 10px;
+            font-size: 1.1em;
+        }
+
+        /* GROUP FORM */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        /* INPUT FIELDS */
+        input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-size: 1em;
+        }
+
+        input[type="text"]:focus, input[type="tel"]:focus {
+            border-color: #25D366;
+            box-shadow: 0 0 5px rgba(37, 211, 102, 0.5);
+            outline: none;
+        }
+        
+        /* VALIDASI ERROR MESSAGE */
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85em;
+            margin-top: 5px;
+            display: none; /* Default tersembunyi */
+        }
+
+        /* BUTTON */
+        button {
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover {
+            background-color: #128C7E; 
+            transform: translateY(-2px);
+        }
+
+        button::before {
+            content: "💬";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* MEDIA QUERIES */
+        @media (max-width: 650px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            body {
+                padding: 10px;
+            }
+            .logo-header h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        
+        <div class="logo-header">
+            <h2><span class="indo">INDO</span> <span class="cargo">CARGO</span></h2>
+        </div>
+
+        <h3 class="form-title">📝 Formulir Data Pengiriman</h3>
+
+        <form id="whatsappForm">
+
+            <fieldset>
+                <legend>Data Customer/Pengirim</legend>
+                <div class="form-group">
+                    <label for="namaCustomer">Nama Customer/Pengirim</label>
+                    <input type="text" id="namaCustomer" required>
+                </div>
+                <div class="form-group">
+                    <label for="nomorHP">Nomor Handphone Pengirim (cth: +852xxxx)</label>
+                    <input type="tel" id="nomorHP" required pattern="[0-9+]+" title="Hanya boleh angka dan tanda plus (+)">
+                    <div id="errorHP" class="error-message">Nomor HP harus diisi dengan format angka.</div>
+                </div>
+                <div class="form-group">
+                    <label for="alamatHK">Alamat di Hong Kong</label>
+                    <input type="text" id="alamatHK" required>
+                </div>
+                <div class="form-group">
+                    <label for="nomorPaspor">Nomor Paspor</label>
+                    <input type="text" id="nomorPaspor" required>
+                </div>
+                <div class="form-group">
+                    <label for="nomorIDHK">Nomor ID HK</label>
+                    <input type="text" id="nomorIDHK" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Data Penerima di Indonesia</legend>
+                <div class="form-group">
+                    <label for="namaPenerima">Nama Penerima</label>
+                    <input type="text" id="namaPenerima" required>
+                </div>
+                <div class="form-group">
+                    <label for="alamatPenerima">Alamat Lengkap Penerima</label>
+                    <input type="text" id="alamatPenerima" required>
+                </div>
+                <div class="form-group">
+                    <label for="nomorHPPenerima">Nomor Handphone Penerima (cth: 081xxxx)</label>
+                    <input type="tel" id="nomorHPPenerima" required pattern="[0-9]+" title="Hanya boleh angka">
+                    <div id="errorHPPenerima" class="error-message">Nomor HP Penerima harus diisi dengan angka.</div>
+                </div>
+            </fieldset>
+
+            <button type="submit">Kirim Pesanan ke WhatsApp</button>
+        </form>
+    </div>
+
+    <script>
+        // Ganti dengan nomor WhatsApp Anda (tanpa tanda +, cth: 85298765432)
+        const WHATSAPP_NUMBER = "85255271444"; 
+
+        document.getElementById('whatsappForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            // --- VALIDASI DATA ---
+            let isValid = true;
+
+            const nomorHPInput = document.getElementById('nomorHP');
+            const nomorHPPenerimaInput = document.getElementById('nomorHPPenerima');
+            const errorHP = document.getElementById('errorHP');
+            const errorHPPenerima = document.getElementById('errorHPPenerima');
+
+            // Regex untuk HP Customer: angka dan opsional tanda '+'
+            const hpCustomerRegex = /^[0-9+]+$/;
+            // Regex untuk HP Penerima: hanya angka
+            const hpPenerimaRegex = /^[0-9]+$/;
+
+            // Validasi Nomor HP Customer
+            if (!hpCustomerRegex.test(nomorHPInput.value) || nomorHPInput.value === '') {
+                errorHP.style.display = 'block';
+                isValid = false;
+            } else {
+                errorHP.style.display = 'none';
+            }
+
+            // Validasi Nomor HP Penerima
+            if (!hpPenerimaRegex.test(nomorHPPenerimaInput.value) || nomorHPPenerimaInput.value === '') {
+                errorHPPenerima.style.display = 'block';
+                isValid = false;
+            } else {
+                errorHPPenerima.style.display = 'none';
+            }
+
+            // Jika validasi gagal, hentikan proses
+            if (!isValid) {
+                alert('Terdapat kesalahan pada input. Mohon periksa kembali kolom yang disorot.');
+                return;
+            }
+
+            // --- PROSES PENGIRIMAN DATA (Jika Validasi Sukses) ---
+
+            const namaCustomer = document.getElementById('namaCustomer').value;
+            const nomorHP = nomorHPInput.value;
+            const alamatHK = document.getElementById('alamatHK').value;
+            const nomorPaspor = document.getElementById('nomorPaspor').value;
+            const nomorIDHK = document.getElementById('nomorIDHK').value;
+            const namaPenerima = document.getElementById('namaPenerima').value;
+            const alamatPenerima = document.getElementById('alamatPenerima').value;
+            const nomorHPPenerima = nomorHPPenerimaInput.value;
+
+            const message = `
+*--- 📋 DATA PESANAN INDOCARGO BARU ---*
+
+*A. Data Customer/Pengirim:*
+Nama: ${namaCustomer}
+No. HP: ${nomorHP}
+Alamat HK: ${alamatHK}
+No. Paspor: ${nomorPaspor}
+No. ID HK: ${nomorIDHK}
+
+*B. Data Penerima di Indonesia:*
+Nama Penerima: ${namaPenerima}
+Alamat Lengkap: ${alamatPenerima}
+No. HP Penerima: ${nomorHPPenerima}
+
+*--- SEGERA DIPROSES ---*
+            `.trim();
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${85255271444}?text=${encodedMessage}`;
+
+            window.open(whatsappURL, '_blank');
+            alert('Data siap dikirim ke WhatsApp!');
+        });
+    </script>
+
+</body>
+</html>
