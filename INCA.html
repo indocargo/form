@@ -291,7 +291,7 @@ No. HP Penerima: ${nomorHPPenerima}
             `.trim();
 
             const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${85255271444}?text=${encodedMessage}`;
+            const whatsappURL = `https://wa.me/${+8526426007}?text=${encodedMessage}`;
 
             window.open(whatsappURL, '_blank');
             alert('Data siap dikirim ke WhatsApp!');
