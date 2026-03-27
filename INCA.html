@@ -221,7 +221,7 @@
 
     <script>
         // Ganti dengan nomor WhatsApp Anda (tanpa tanda +, cth: 85298765432)
-        const WHATSAPP_NUMBER = "85255271444"; 
+        const WHATSAPP_NUMBER = "8526426007"; 
 
         document.getElementById('whatsappForm').addEventListener('submit', function(event) {
             event.preventDefault(); 
@@ -291,7 +291,7 @@ No. HP Penerima: ${nomorHPPenerima}
             `.trim();
 
             const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${+8526426007}?text=${encodedMessage}`;
+            const whatsappURL = `https://wa.me/${8526426007}?text=${encodedMessage}`;
 
             window.open(whatsappURL, '_blank');
             alert('Data siap dikirim ke WhatsApp!');
